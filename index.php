@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: 密码保护
-Description: wp-privacy 是一款可以给你的WordPress网站增加密码保护功能的WordPress插件，开启密码保护功能后，访客需要知道密码才能访问你的WordPress网站。通过 <strong>设置 > 密码保护 > 设置你的密码</strong> 开启密码保护功能。如果你想禁用密码保护，取消勾选 <strong>设置 > 密码保护 > 启用密码保护</strong>。
-Version: 1.5
+Plugin Name: WP Privacy（密码保护）
+Description: 开启密码保护模式，访客需要知道密码才能访问你的WordPress网站。通过 <strong>设置 > 密码保护 > 设置你的密码</strong> 开启密码保护功能。如果你想禁用密码保护，取消勾选 <strong>设置 > 密码保护 > 启用密码保护</strong>。
+Version: 1.0.0
 Author: 热前端团队
 Author URI: http://themes.reqianduan.com
 License: GPL2
@@ -55,7 +55,7 @@ class hide_my_site{
 
 	function enqueue_color_picker( $hook_suffix ) {
 		wp_enqueue_style( 'wp-color-picker' );
-		wp_enqueue_script( 'motech-script-handle', plugins_url('motech-color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
+		wp_enqueue_script( 'motech-script-handle', plugins_url('js/motech-color-picker.js', __FILE__ ), array( 'wp-color-picker' ), false, true );
 	}
 
 	function motech_imageupload_script() {
