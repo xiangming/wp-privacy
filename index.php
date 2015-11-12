@@ -229,8 +229,13 @@ class hide_my_site{
 	</style>
     <div class="motechdonate">
         <div style="overflow: hidden; width: 161px; text-align: center;">
-        <div style="overflow: hidden; width: 161px; text-align: center; float: left;"><form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input name="cmd" value="_s-xclick" type="hidden"><input name="hosted_button_id" value="9TL57UDBAB7LU" type="hidden"><input type="hidden" name="no_shipping" value="1"><input type="hidden" name="item_name" value="The Motech Network Plugin Support - <?php echo $this->plugin_label ?>" /><input alt="PayPal - The safer, easier way to pay online!" name="submit" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" type="image"> <img src="https://www.paypal.com/en_US/i/scr/pixel.gif" alt="" border="0" height="1" width="1"></form></div>
-        If you enjoy or find any of my plugins useful, please donate a few dollars to my company The Motech Network to help with future development and updates. Thanks in advance.<br /><span style="font-size: 12px;display: block;margin-top: 6px;">This is for donations only. If you wish to purchase a premium license, click the <a href="javascript:void(0)" class="hms_get_premium">Get Premium</a> green button, at the top of the page, instead.</span>		</div>
+        	<form action="https://shenghuo.alipay.com/send/payment/fill.htm" method="post" target="_blank">
+                <input name="optEmail" type="hidden" value="arvinxiang@qq.com">
+                <input id="payAmount" name="payAmount" type="hidden" value="50">
+                <input type="image" src="<?php echo plugins_url( 'images/alipay.png' , __FILE__ ); ?>" width="100%" onclick="this.submit();">
+            </form>
+        	如果您觉得这个插件对你有帮助，请使用支付宝客户端，扫描二维码，捐赠**元，^_^，谢谢！
+        </div>
 	</div>
 
     <?php
@@ -242,76 +247,9 @@ class hide_my_site{
 		<div class="wrap" style="position:relative">
 		    <?php screen_icon(); ?>
 		    <h2 class="aplabel"><?php echo $this->plugin_label ?></h2>
-            <div id="green_ribbon">
-
-            	<div id="green_ribbon_top">
-                	<div id="green_ribbon_left">
-                    </div>
-                    <div id="green_ribbon_base">
-                    	<span id="hms_get_premium">NEW! Get Premium</span>
-                        <span class="hms_get_premium_meta">密码保护 Premium is now available for as low as $20!</span>
-                    </div>
-                    <div id="green_ribbon_right">
-                    </div>
-                </div>
-
-                <div class="motech_premium_box">
-                	<div class="motech_premium_box_wrap">
-                        <h2>Get Premium</h2>
-                        <div class="updated below-h2" style="margin-bottom: -20px !important;"><p><strong>Purchase will be processed via PayPal.</strong></p></div>
-                        <div class="updated below-h2"><p><strong>Every license is valid for the lifetime of the website where it's installed.</strong></p></div>
-
-                        <div class="motech_purchase_buttons">
-
-                            <div class="motech_purchase_button one_use">
-                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input name="cmd" value="_s-xclick" type="hidden"><input name="hosted_button_id" value="LB32DUSMJNQNY" type="hidden"><input type="hidden" name="page_style" value="hide_my_site_premium">
-                                    <button name="submit">
-                                        <div class="purchase_graphic">Buy 1 Use</div>
-                                        <div class="purchase_bubble">
-                                            <div class="purchase_price">$20</div>
-                                            <div class="purchase_meta">1 site license</div>
-                                        </div>
-                                    </button>
-                                    <img src="https://www.paypal.com/en_US/i/scr/pixel.gif" alt="" border="0" height="1" width="1">
-                                </form>
-                            </div>
-
-<?php /*?>                            <div class="motech_purchase_button three_use">
-                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input name="cmd" value="_s-xclick" type="hidden"><input name="hosted_button_id" value="XPEKT7LZMF8ZL" type="hidden"><input type="hidden" name="page_style" value="hide_my_site_premium">
-                                    <button name="submit">
-                                        <div class="purchase_graphic">Buy 3 Uses</div>
-                                        <div class="purchase_bubble">
-                                            <div class="purchase_price">$50</div>
-                                            <div class="purchase_meta">3 site license</div>
-                                        </div>
-                                    </button>
-                                    <img src="https://www.paypal.com/en_US/i/scr/pixel.gif" alt="" border="0" height="1" width="1">
-                                </form>
-                            </div><?php */?>
-
-                            <div class="motech_purchase_button unlimited_use">
-                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input name="cmd" value="_s-xclick" type="hidden"><input name="hosted_button_id" value="X5WGHSZDJKTJL" type="hidden"><input type="hidden" name="page_style" value="hide_my_site_premium">
-                                    <button name="submit">
-                                        <div class="purchase_graphic">Buy <span>Unlimited</span></div>
-                                        <div class="purchase_bubble">
-                                            <div class="purchase_price">$50</div>
-                                            <div class="purchase_meta">Unlimited sites forever!</div>
-                                        </div>
-                                    </button>
-                                    <img src="https://www.paypal.com/en_US/i/scr/pixel.gif" alt="" border="0" height="1" width="1">
-                                </form>
-                            </div>
-
-                    	</div>
-
-                        <div class="motech_premium_cancel"><span>Cancel</span></div>
-
-                    </div>
-                </div>
-            </div>
             <div class="mt_donate_wrap">
             	<?php if (get_option($this->plugin_slug . '_ihmsa','') != 'hmsia') : ?>
-                <?php /*?><?php $this->get_donate_button() ?><?php */?>
+                <?php $this->get_donate_button(); ?>
                 <?php endif ?>
             </div>
 		    <form method="post" action="options.php" class="<?php echo $this->plugin_slug ?>_form">
