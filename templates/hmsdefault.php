@@ -3,80 +3,104 @@
 ?>
 
 <style>
-	*{
-		box-sizing:border-box;
-	}
-	html, body {
-		text-align: center;
-		height: 100%;
-	}
-	body {background:#F2F2F2;font-family: "Helvetica Neue", "Arial", "sans-serif";}
-	.privacy {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: 100%;
-	  padding: 20px;
-	  font-size: 14px;
-	  font-family: "Helvetica Neue", "Arial", "sans-serif";
-	  overflow: hidden;
-	}
-	.privacy .privacy-inner {
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  -webkit-transform: translate(-50%, -50%);
-	      -ms-transform: translate(-50%, -50%);
-	          transform: translate(-50%, -50%);
-	  text-align: center;
-	}
-	.privacy .privacy-inner .img-container {
-	  margin-bottom: 30px;
-	}
-	.privacy .privacy-inner .input-container {
-	  position: relative;
-	}
-	.privacy .privacy-inner .input-container input[type="password"] {
-	  background: #fff;
-	  color: #3a3a3a;
-	  padding: 14px 48px 14px 15px;
-	  border: 0;
-	  border-radius: 3px;
-	}
-	.privacy .privacy-inner .input-container .arrow-icon {
-	  position: absolute;
-	  top: 12px;
-	  right: 12px;
-	  display: none;
-	  cursor: pointer;
-	}
-	.privacy .privacy-inner .input-container .arrow-icon.show {
-	  display: block;
-	  opacity: .3;
-	}
-	.privacy .privacy-inner .input-container .arrow-icon.show:hover {
-	  opacity: 1;
-	}
-	.privacy .privacy-inner .input-container .error-message {
-	  background: #F0523D;
-	  color: #fff;
-	  text-align: left;
-	  padding: 14px;
-	  width: 100%;
-	  position: absolute;
-	  top: 0;
-	  z-index: -1;
-	  -webkit-transition: all .2s ease;
-	          transition: all .2s ease;
-	  opacity: 0;
-	  box-sizing: border-box;
-	}
-	.privacy .privacy-inner .input-container .error-message.show {
-	  opacity: 1;
-	  top: 44px;
-	}
-	#the_hint_wrap div {display:inline-block;vertical-align:top;}
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	text-align: center;
+	height: 100%;
+}
+
+body {
+	background: #F2F2F2;
+	font-family: "Helvetica Neue", "Arial", "sans-serif";
+}
+
+.privacy {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	font-size: 14px;
+	font-family: "Helvetica Neue", "Arial", "sans-serif";
+	overflow: hidden;
+}
+
+.privacy .privacy-inner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.privacy .privacy-inner .img-container {
+	margin-bottom: 30px;
+}
+
+.privacy .privacy-inner .input-container {
+	position: relative;
+}
+
+.privacy .privacy-inner .input-container input[type="password"] {
+	background: #fff;
+	color: #3a3a3a;
+	padding: 14px 48px 14px 15px;
+	border: 0;
+	border-radius: 3px;
+}
+
+.privacy .privacy-inner .input-container .arrow-icon {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: none;
+	cursor: pointer;
+}
+
+.privacy .privacy-inner .input-container .arrow-icon.show {
+	display: block;
+	opacity: .3;
+}
+
+.privacy .privacy-inner .input-container .arrow-icon.show:hover {
+	opacity: 1;
+}
+
+.privacy .privacy-inner .input-container .error-message {
+	background: #F0523D;
+	color: #fff;
+	text-align: left;
+	padding: 14px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	opacity: 0;
+	box-sizing: border-box;
+}
+
+.privacy .privacy-inner .input-container .error-message.show {
+	opacity: 1;
+	top: 44px;
+}
+
+#the_hint_wrap div {
+	display: inline-block;
+	vertical-align: top;
+}
+.info{
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+}
 </style>
 <body>
 	<?php echo $messagehtml ?>
@@ -97,6 +121,9 @@
 			  	</div>
 			</div>
 		</div>
+		<a class="info" href="http://themes.reqianduan.com/plugin/wp-privacy" target="_blank">
+			<img src="<?php echo $this->plugin_dir ?>/images/info.png" alt="developer info icon" width="16" height="16">
+		</a>
 	</div>
 	<script>
 		function checkInput(t){

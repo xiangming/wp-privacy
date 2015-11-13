@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+db.json
+debug.log
+svn/
+node_modules/
+bower_components/
+release/
+**/cache/
+js/*.min.js
+__MACOSX/
+public/
+.deploy/
+_SYNCAPP
+metadata.xml
+*.map

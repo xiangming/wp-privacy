@@ -736,9 +736,6 @@ class hide_my_site{
 					.motech_purchase_button .purchase_graphic {left: -23px;}
 					.motech_purchase_button {margin-right:70px;}
 				}
-				@media only screen and (max-width: 1255px) {
-					.motechdonate {height: 55px;}
-				}
 				@media only screen and (max-width: 1025px) {
 					.hms_get_premium_meta {display:none !important;}
 				}

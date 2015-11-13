@@ -1,7 +1,7 @@
-=== WP Privacy（密码保护） ===
-Contributors: 热前端团队
+=== WP Privacy ===
+Contributors: reqianduan
 Donate link: http://themes.reqianduan.com/
-Tags: password,password protection,密码,密码保护,隐私,私密日记
+Tags: privacy,wp-privacy,hide-my-site,password,password protection,密码,密码保护,隐私,私密日记,限制访问
 Requires at least: 2.9
 Tested up to: 4.3
 Stable tag: 1.0.0
@@ -28,11 +28,17 @@ wp-privacy 是一款可以给你的WordPress网站增加密码保护功能的Wor
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Configure the settings using "wp-privacy" under Settings panel.
 
-下载 密码保护(wp-privacy) 插件，上传wp-privacy目录及其文件到 "/wp-content/plugins/" 插件目录，在后台管理中启用插件，到设置页面开启功能并设置，以及选择模板等。
+下载插件，上传wp-privacy目录及其文件到 "/wp-content/plugins/" 插件目录，在后台管理中启用插件，到设置页面开启功能并设置模板等。
 
 == Frequently asked questions ==
 
 == Screenshots ==
+
+1. 默认外观
+2. 你可以自定义背景色
+3. 你可以自定义背景图片
+4. 还可以自定义背景图片的填充方式
+5. 以及更多可能性
 
 == Changelog ==
 
