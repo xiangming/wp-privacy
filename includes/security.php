@@ -1,50 +1,50 @@
 <?php
 
 class hidemysite_security{
-	
+
 	public function __construct(){
 		$this->needs_to_wait = 0;
 		//add to front and backend inits
-		add_action('init', array($this,'create_hidemysiteSecure'));		
+		add_action('init', array($this,'create_hidemysiteSecure'));
 	}
-	
+
 	//set up custom table in database, if it's not there yet
 	function create_hidemysiteSecure(){
-		if (!is_admin() and (get_option('hide_my_site_bruteforce', 1) == 1)) { //only create table on front end, so that this feature can be disabled via admin in case of malfunction
+		if (!is_admin() and (get_option('wp_privacy_bruteforce', 1) == 1)) { //only create table on front end, so that this feature can be disabled via admin in case of malfunction
 			global $wpdb;
-		 
+
 			//create the name of the table including the wordpress prefix (wp_ etc)
 			$search_table = $wpdb->prefix . "hidemysiteSecure";
-			//$wpdb->show_errors(); 
-		 
+			//$wpdb->show_errors();
+
 			//check if there are any tables of that name already
-			if($wpdb->get_var("show tables like '$search_table'") !== $search_table) 
+			if($wpdb->get_var("show tables like '$search_table'") !== $search_table)
 			{
 				//create your sql
 				$sql =  "CREATE TABLE ". $search_table . " (
 							  id mediumint(12) NOT NULL AUTO_INCREMENT,
 							  ip text NOT NULL,
-							  time VARCHAR (20) NOT NULL, 
+							  time VARCHAR (20) NOT NULL,
 							  repeated_fails VARCHAR (20) NOT NULL,
 							  UNIQUE KEY id (id));";
 			}
-		 
+
 			//include the wordpress db functions
 			require_once(ABSPATH . 'wp-admin/upgrade-functions.php');
 			dbDelta($sql);
-		 
+
 			//register the new table with the wpdb object
-			if (!isset($wpdb->hidemysiteSecure)) 
+			if (!isset($wpdb->hidemysiteSecure))
 			{
-				$wpdb->hidemysiteSecure = $search_table; 
+				$wpdb->hidemysiteSecure = $search_table;
 				//add the shortcut so you can use $wpdb->hidemysiteSecure
-				$wpdb->tables[] = str_replace($wpdb->prefix, '', $search_table); 
+				$wpdb->tables[] = str_replace($wpdb->prefix, '', $search_table);
 			}
 		}
 	}
-	
+
 	function track_ip(){
-		if(get_option('hide_my_site_bruteforce', 1) == 1) { //confirm brute force protection enabled
+		if(get_option('wp_privacy_bruteforce', 1) == 1) { //confirm brute force protection enabled
 			global $wpdb;
 			$dbName = $wpdb->prefix . "hidemysiteSecure";
 			$userip = $_SERVER['REMOTE_ADDR'];
@@ -69,38 +69,38 @@ class hidemysite_security{
 						$this->remaining_wait_time = $min_wait_time_next;
 					}
 				}
-				
+
 				//increase fail count by 1
 				$new_fails = $prev_fails + 1;
-				//update ip to current failure count at current time				
+				//update ip to current failure count at current time
 				$where_array = array("ip" => "$userip");
-				$wpdb->update( $dbName, array( 
-					'repeated_fails' => $new_fails,  
+				$wpdb->update( $dbName, array(
+					'repeated_fails' => $new_fails,
 					'time' => time()
 				),  $where_array);
 				//return "Record already exists. Previous failure was " . $elapsed . " seconds ago. You must wait $min_wait_time seconds before next attempt";
 			} else {
 				//ip record does not exist. create it
-				$wpdb->insert( $dbName, array( 
-					'ip' => $_SERVER['REMOTE_ADDR'],  
-					'time' => time(), 
+				$wpdb->insert( $dbName, array(
+					'ip' => $_SERVER['REMOTE_ADDR'],
+					'time' => time(),
 					'repeated_fails' => 1
 				));
 				//return "record does not exist";
 			}
-			
+
 		}
 
 	}
-	
+
 	function get_alert(){
 		if ($this->needs_to_wait == 1) {
 			return "<script>alert('You have too many failed login attempts recently. You must wait ".$this->remaining_wait_time." seconds before your next login attempt.')</script>";
 		}
 	}
-	
+
 	function remove_ip(){
-		if(get_option('hide_my_site_bruteforce', 1) == 1) { //confirm brute force protection enabled
+		if(get_option('wp_privacy_bruteforce', 1) == 1) { //confirm brute force protection enabled
 			global $wpdb;
 			$dbName = $wpdb->prefix . "hidemysiteSecure";
 			$userip = $_SERVER['REMOTE_ADDR'];

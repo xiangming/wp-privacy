@@ -9,9 +9,9 @@ License: GPL2
 */
 
 $plugin_label = "密码保护";
-$plugin_slug = "hide_my_site";
+$plugin_slug = "wp_privacy";
 
-class hide_my_site{
+class wp_privacy{
 
 	//define variables
 	var $plugin_label = "密码保护";
@@ -279,7 +279,7 @@ class hide_my_site{
 		$field_id = $this->plugin_slug.'_'.$field_slug;
 		register_setting($this->plugin_slug.'_option_group', $field_id);
 		if( is_plugin_active( 'expansion-hide-my-site/index.php' ) ) {
-			$enterprompt = "<a href='" . get_bloginfo( "wpurl" ) . "/wp-admin/options-general.php?page=hide_my_site_premium_expansion-setting-admin'>Enter your license key</a> to unlock premium features. <a href='javascript:void(0)' class='hms_get_premium'>Get Premium »</a>";
+			$enterprompt = "<a href='" . get_bloginfo( "wpurl" ) . "/wp-admin/options-general.php?page=wp_privacy_premium_expansion-setting-admin'>Enter your license key</a> to unlock premium features. <a href='javascript:void(0)' class='hms_get_premium'>Get Premium »</a>";
 		} else {
 			$enterprompt = "Enter your license key to unlock premium features. <a href='javascript:void(0)' class='hms_get_premium'>Get Premium »</a>";
 		}
@@ -683,7 +683,7 @@ class hide_my_site{
             <style>
 				.hmshidden {display:none;}
 				#wpbody h3 {font-size:20px;}
-				#hide_my_site_current_theme {display:none;}
+				#wp_privacy_current_theme {display:none;}
 				div.updated.success {background-color: rgb(169, 252, 169);border-color: rgb(85, 151, 85);}
 				.mvalid {background-color: rgb(169, 252, 169);border-color: rgb(85, 151, 85);width: 127px;font-weight: bold;padding-left: 10px;border: solid 1px rgb(85, 151, 85);border-radius: 3px;}
 				.motech_premium_only {color:red;}
@@ -795,16 +795,16 @@ class hide_my_site{
 						jQuery("#<?php echo $this->plugin_slug ?>_current_theme").parent().parent().hide();
 						<?php if (get_option($this->plugin_slug . '_ihmsa','') == 'hmsia') : ?>
 							<?php
-								if(get_option('hide_my_site_premium_expansion_plk','') != '') {
-									$useval = get_option('hide_my_site_premium_expansion_plk','');
+								if(get_option('wp_privacy_premium_expansion_plk','') != '') {
+									$useval = get_option('wp_privacy_premium_expansion_plk','');
 								} elseif(get_option($this->plugin_slug . '_plk','') != '') {
-									$useval = get_option('hide_my_site_premium_expansion_plk','');
+									$useval = get_option('wp_privacy_premium_expansion_plk','');
 								}
 							?>
 							useval = '<?php echo $useval ?>';
-							jQuery("#hide_my_site_plk").replaceWith("<div>"+useval+"</div>");
+							jQuery("#wp_privacy_plk").replaceWith("<div>"+useval+"</div>");
 						<?php else : ?>
-							jQuery("#hide_my_site_plk").replaceWith("<div></div>");
+							jQuery("#wp_privacy_plk").replaceWith("<div></div>");
 						<?php endif ?>
 
 						jQuery("#hms_get_premium, .motech_premium_cancel span").click(function(){
@@ -984,7 +984,7 @@ class hide_my_site{
 		if((!(get_option($this->plugin_slug.'_'.$field_slug)) AND (get_option($this->plugin_slug.'_enabled', 1, false) == 1) )) {
 			echo '
 				<div class="updated">
-					<p><strong>'.$this->plugin_label.' is almost ready.</strong> You must <a href="' . get_bloginfo( 'wpurl' ) . '/wp-admin/options-general.php?page='.$this->plugin_slug.'-setting-admin">set your password</a> for it to work.</p>
+					<p>'.$this->plugin_label.' <strong>已启用。</strong> 开始使用前，你必须 <a href="' . get_bloginfo( 'wpurl' ) . '/wp-admin/options-general.php?page='.$this->plugin_slug.'-setting-admin">设置你的密码</a>。</p>
 				</div>';
 		}
 
