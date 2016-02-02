@@ -121,7 +121,7 @@ body {
 			  	</div>
 			</div>
 		</div>
-		<a class="info" href="http://themes.reqianduan.com/plugin/wp-privacy" target="_blank">
+		<a class="info" href="http://themes.reqianduan.com" target="_blank">
 			<img src="<?php echo $this->plugin_dir ?>/images/info.png" alt="developer info icon" width="16" height="16">
 		</a>
 	</div>

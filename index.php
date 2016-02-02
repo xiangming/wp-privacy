@@ -399,7 +399,7 @@ class wp_privacy{
 		$field_id = $this->plugin_slug.'_'.$field_slug;
 		$this->back_options = array(
 								array("label" => "不显示", "value" => ""),
-								array("label" => "网站正在开发中，请输入密码后访问。", "value" => "网站正在开发中，请输入密码后访问。"),
+								array("label" => "网站正在更新，请稍后再试。", "value" => "网站正在更新，请稍后再试。"),
 								array("label" => "这是一个密码保护网站，你必须输入密码后才能访问。", "value" => "这是一个密码保护网站，你必须输入密码后才能访问。"),
 		);
 		register_setting($this->plugin_slug.'_option_group', $field_id);
